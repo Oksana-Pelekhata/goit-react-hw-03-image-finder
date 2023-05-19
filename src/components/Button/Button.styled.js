@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const LoadMoreBtn = styled.button`
+ margin: 20px auto;
+  display: block;
   padding: 8px 16px;
-  margin-bottom: 10px;
+ 
   border-radius: 2px;
   background-color: #0d6efd;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
-  display: inline-block;
+ 
   color: #fff;
   border: 0;
   text-decoration: none;

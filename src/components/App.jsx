@@ -4,7 +4,9 @@ import { fetchPictures } from '.././services/pixabayApi'
 import { Loader } from './Loader'
 import { ImageErrorView } from './ImageErrorView'
 import { ImageGallery } from './ImageGallery'
-import {Button} from './Button'
+import { Button } from './Button'
+import { Wrapper } from './Wrapper/Wrapper';
+
 
 const Status = {
   IDLE: 'idle',
@@ -41,6 +43,7 @@ export class App extends Component {
   }
 
   handleSearchFormSubmit = name => {
+    console.log(name)
     this.setState({
       name: name,
       page: 1,
@@ -57,14 +60,14 @@ export class App extends Component {
   render() {
     const { pictures, error, status, page} = this.state;
     return (
-       <>
+       <Wrapper>
         <Searchbar onSubmit={ this.handleSearchFormSubmit} />
     
     { status === 'pending' && <Loader /> }
     { status === 'resolved' && <ImageGallery pictures={pictures}  /> }
         {status === 'rejected' && <ImageErrorView message={error.message} />} 
         {pictures.length !== 0 && (pictures.length /12) === page && <Button LoadMoreBtnClick={this.handleLoadMoreBtnClick} />}
-      </>
+      </Wrapper>
     )
   
   }
