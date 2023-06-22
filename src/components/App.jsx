@@ -64,7 +64,7 @@ export class App extends Component {
         <Searchbar onSubmit={ this.handleSearchFormSubmit} />
     
     { status === 'pending' && <Loader /> }
-    { status === 'resolved' && <ImageGallery pictures={pictures}  /> }
+    { pictures.length > 0 && <ImageGallery pictures={pictures}  /> }
         {status === 'rejected' && <ImageErrorView message={error.message} />} 
         {pictures.length !== 0 && (pictures.length /12) === page && <Button LoadMoreBtnClick={this.handleLoadMoreBtnClick} />}
       </Wrapper>
